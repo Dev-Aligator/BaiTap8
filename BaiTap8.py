@@ -7,7 +7,7 @@ from PIL import Image
 import gdown
 import os
 
-model_url = "https://drive.google.com/file/d/1xK3SpZGOwPDPqasMmrE5VaRDeSqXZRjz/view?usp=sharing"
+model_url = "https://drive.google.com/uc?id=1xK3SpZGOwPDPqasMmrE5VaRDeSqXZRjz"
 
 model_path = 'vietnamese_food_model.pkl'
 
