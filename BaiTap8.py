@@ -25,6 +25,7 @@ with open(model_path, 'rb') as file:
 
 train_datagen = ImageDataGenerator(rescale=1./255)
 
+train_dir = os.path.join(path, 'Images/Train')
 train_generator = train_datagen.flow_from_directory(
     train_dir,
     target_size=(224, 224),
