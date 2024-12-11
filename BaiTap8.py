@@ -13,7 +13,7 @@ import pickle
 # Download latest version
 path = kagglehub.dataset_download("quandang/vietnamese-foods")
 
-model_url = "https://drive.google.com/uc?id=1xK3SpZGOwPDPqasMmrE5VaRDeSqXZRjz"
+model_url = "https://drive.google.com/uc?id=12DrfQjNEvIh3LHOpi91tofBPnlpSh8lI"
 
 model_path = 'vietnamese_food_model.pkl'
 
