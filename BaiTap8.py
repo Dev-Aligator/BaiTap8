@@ -7,11 +7,7 @@ import numpy as np
 from PIL import Image
 import gdown
 import os
-import kagglehub
 import pickle
-
-# Download latest version
-path = kagglehub.dataset_download("quandang/vietnamese-foods")
 
 model_url = "https://drive.google.com/uc?id=1xK3SpZGOwPDPqasMmrE5VaRDeSqXZRjz"
 
@@ -23,17 +19,8 @@ if not os.path.exists(model_path):
 with open(model_path, 'rb') as file:
     model = pickle.load(file)
 
-train_datagen = ImageDataGenerator(rescale=1./255)
-
-train_dir = os.path.join(path, 'Images/Train')
-train_generator = train_datagen.flow_from_directory(
-    train_dir,
-    target_size=(224, 224),
-    batch_size=32,
-    class_mode='categorical'
-)
-
-class_names = list(train_generator.class_indices.keys())
+with open('labels.txt', 'r') as file:
+    class_names = file.read().splitlines()
 
 st.title("Ứng dụng nhận diện món ăn Việt Nam")
 
