@@ -4,8 +4,19 @@ from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 import numpy as np
 from PIL import Image
+import gdown
+import os
 
-model = load_model('vietnamese_food_model.pkl')
+model_url = "https://drive.google.com/file/d/1xK3SpZGOwPDPqasMmrE5VaRDeSqXZRjz/view?usp=sharing"
+
+model_path = 'vietnamese_food_model.pkl'
+
+if not os.path.exists(model_path):
+    gdown.download(model_url, model_path, quiet=False)
+
+import pickle
+with open(model_path, 'rb') as file:
+    model = pickle.load(file)
 
 class_names = ['Bánh Chưng', 'Phở', 'Bánh Mì', 'Gỏi Cuốn', 'Bánh Xèo', 'Bún Chả', 'Chả Cá Lã Vọng', 'Cơm Tấm', 'Bánh Bao', 'Bánh Cuốn']
 
